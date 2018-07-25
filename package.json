@@ -1,0 +1,41 @@
+{
+  "name": "spider",
+  "version": "1.0.0",
+  "description": "Node Crawler",
+  "main": "index.js",
+  "keywords": [
+    "Node",
+    "Crawler",
+    "Javascript"
+  ],
+  "author": "Mark Ernest R. Matute",
+  "license": "ISC",
+  "scripts": {
+    "start": "npm run serve",
+    "build": "npm run build-ts",
+    "serve": "node dist/index.js",
+    "watch-node": "nodemon dist/index.js",
+    "watch": "concurrently -k -p \"[{name}x]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w",
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
+    "debug": "npm run build && npm run watch-debug",
+    "serve-debug": "nodemon --inspect dist/index.js",
+    "watch-debug": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run serve-debug\""
+  },
+  "devDependencies": {
+    "@types/node": "^10.1.0",
+    "concurrently": "^3.5.1",
+    "nodemon": "^1.13.0",
+    "ts-node": "^5.0.0",
+    "tslint": "^5.9.1",
+    "typescript": "^2.7.2"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "dotenv": "^6.0.0",
+    "lodash": "^4.17.10",
+    "request": "^2.87.0",
+    "url-parse": "^1.4.1"
+  }
+}
